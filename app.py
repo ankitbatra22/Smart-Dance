@@ -6,6 +6,7 @@ import os
 import pymongo
 from flask_pymongo import PyMongo
 import bcrypt
+import numpy as np
 
 #Load configs
 app = Flask(__name__)
@@ -16,7 +17,7 @@ with open("./configs/config.json") as dataFile:
 username, password = (config["username"], config["password"])
 app.secret_key = "testing"
 app.config['MONGO_DBNAME'] = 'dance-assist'
-app.config['MONGO_URI'] = f'mongodb+srv://{username}:{password}@cluster0.vdghb.mongodb.net/test'
+app.config['MONGO_URI'] = f'mongodb+srv://{username}:{password}@cluster0.vdghb.mongodb.net/dance-assist'
 
 mongo = PyMongo(app)
 
@@ -31,6 +32,49 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 mp_pose = mp.solutions.pose
+
+
+def connect_points(points, image):
+    points_connect_dict = {
+        1: [2, 0],
+        2: [1, 3],
+        3: [7],
+        4: [0, 5],
+        5: [4, 6],
+        6: [8, 5],
+        7: [3],
+        8: [6],
+        9: [10],
+        10: [9],
+        11: [12, 13],
+        12: [11, 14],
+        13: [11, 15],
+        14: [12, 16],
+        15: [21, 17, 13],
+        16: [22, 20, 18, 14],
+        17: [15, 19],
+        18: [20, 16],
+        19: [17, 15],
+        20: [18, 16],
+        21: [15],
+        22: [16],
+        23: [11, 24, 25],
+        24: [23, 26, 12],
+        25: [23, 27],
+        26: [24, 28],
+        27: [25, 31, 29],
+        28: [30, 32, 26],
+        29: [27, 31],
+        30: [28, 32],
+        31: [29, 27]
+    }
+
+    for p in points_connect_dict:
+        curr_point = points[p]
+        for endpoint in points_connect_dict[p]:
+            endpoint = points[endpoint]
+            cv2.line(image, curr_point, endpoint, (np.random.randint))
+
 
 
 
@@ -63,6 +107,9 @@ def gen_frames():
                 #print(results.pose_landmarks)
                 #print(results.pose_keypoints_score)
                 #print(results.pose_keypoints_score[0])
+
+
+
                 image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
                 mp_drawing.draw_landmarks(
                     image,
@@ -99,9 +146,14 @@ def info():
 def demo():
     return "demo"
 
+@app.route('/home')
+def home():
+    return render_template('home.html', username=session['username'])
+
 @app.route('/')
 def index():
     if 'username' in session:
+        return render_template('home.html', name=session['username'])
         return 'You are logged in as ' + session['username']
 
     return render_template('index.html')
