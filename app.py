@@ -1,9 +1,11 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, session, request, redirect, url_for, flash
 import cv2
 import mediapipe as mp
 import json
 import os
 import pymongo
+from flask_pymongo import PyMongo
+import bcrypt
 
 #Load configs
 app = Flask(__name__)
@@ -12,11 +14,17 @@ with open("./configs/config.json") as dataFile:
   config = json.load(dataFile)
 
 username, password = (config["username"], config["password"])
-
 app.secret_key = "testing"
+app.config['MONGO_DBNAME'] = 'dance-assist'
+app.config['MONGO_URI'] = f'mongodb+srv://{username}:{password}@cluster0.vdghb.mongodb.net/test'
+
+mongo = PyMongo(app)
 
 #DB Connection
-client = pymongo.MongoClient(f'mongodb+srv://{username}:{password}@cluster0-xth9g.mongodb.net/Richard?retryWrites=true&w=majority')
+#lient = pymongo.MongoClient(f'mongodb+srv://{username}:{password}@cluster0-xth9g.mongodb.net/Richard?retryWrites=true&w=majority')
+
+#db = client.get_database('total_records')
+#records = db.register
 
 # Mediapipe utils
 mp_drawing = mp.solutions.drawing_utils
@@ -25,10 +33,10 @@ mp_hands = mp.solutions.hands
 mp_pose = mp.solutions.pose
 
 
-camera = cv2.VideoCapture(0)
-
 
 def gen_frames():
+    camera = cv2.VideoCapture(0)
+    # infinite webcam loop
     while True:
         with mp_pose.Pose(
         min_detection_confidence=0.5,
@@ -44,6 +52,17 @@ def gen_frames():
                 results = pose.process(image)
                 print(results.pose_landmarks)
                 image.flags.writeable = True
+
+                # results.pose_landmarks gives us the keypoints, 28 * 2 *2 
+                # results.pose_keypoints_score gives us the confidence of the keypoints
+                # results.pose_keypoints_score[0] gives us the confidence of the first keypoint
+                # results.pose_keypoints_score[0][0] gives us the confidence of the first keypoint of the first person
+                # results.pose_keypoints_score[0][1] gives us the confidence of the second keypoint of the first person
+                # results.pose_keypoints_score[0][2] gives us the confidence of the third keypoint of the first person
+
+                #print(results.pose_landmarks)
+                #print(results.pose_keypoints_score)
+                #print(results.pose_keypoints_score[0])
                 image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
                 mp_drawing.draw_landmarks(
                     image,
@@ -82,8 +101,46 @@ def demo():
 
 @app.route('/')
 def index():
-    return render_template('home.html')
+    if 'username' in session:
+        return 'You are logged in as ' + session['username']
 
+    return render_template('index.html')
+    
+
+@app.route('/login', methods=['POST'])
+def login():
+    users = mongo.db.users
+    login_user = users.find_one({'name': request.form['username']})
+
+    if login_user:
+        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password']) == login_user['password']:
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+
+    return 'Invalid username or password'
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('index'))
+
+
+@app.route('/register', methods=['POST', 'GET'])
+def register():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name' : request.form['username']})
+
+        if existing_user is None:
+            hashpass = bcrypt.hashpw(request.form['pass'].encode('utf-8'), bcrypt.gensalt())
+            users.insert({'name':request.form['username'], 'password': hashpass})
+            session['username'] =  request.form['username']
+            return redirect(url_for('index'))
+
+        return 'That username already exists!'
+
+    return render_template('register.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.secret_key = 'mysecret'
+    app.run(debug=True)
