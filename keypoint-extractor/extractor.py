@@ -13,7 +13,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
 
-video_name = 'addison-ray'
+video_name = 'renegade'
 video_path = 'keypoint-extractor/videos/' + video_name
 cap = cv2.VideoCapture(video_path)
 i=0
