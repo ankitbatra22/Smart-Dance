@@ -1,0 +1,132 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section-head {
+  margin-bottom: 60px;
+}
+
+.section-head h4 {
+  position: relative;
+  padding:0;
+  color:#EE1D52;
+  line-height: 1;
+  letter-spacing:0.3px;
+  font-size: 34px;
+  font-weight: 700;  
+  text-align:center;
+  text-transform:none;
+  margin-bottom:30px;
+}
+
+.section-head h4:before {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: #69C9D0;
+  position: absolute;
+  left: 0px;
+  bottom: -10px;
+  right:0;  
+  margin:0 auto;
+}
+.section-head h4 span {
+  font-weight: 700;
+  padding-bottom: 5px;
+  color:white;
+}
+
+.section-head p {
+  text-align: center;
+  font-size: 18px;
+  color:white;
+}
+
+
+body {
+  background: black;
+  font-family: sans-serif;
+}
+
+img {
+  height:300px;
+  max-width: 220px;
+}
+
+.container {
+  width: 90%;
+  margin: 50px auto;
+}
+.heading {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+
+.card {
+  width: 20%;
+  background: #fff;
+  margin-bottom: 50px;
+  transition: 0.3s;
+}
+
+.card-header {
+  text-align: center;
+  padding: 50px 10px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: #fff;
+}
+
+.card-body {
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.card-body .btn {
+  display: block;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  margin-top: 30px;
+  text-decoration: none;
+  padding: 10px 5px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 1000px) {
+  .card {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .container {
+    width: 100%;
+  }
+
+  .heading {
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .card {
+    width: 80%;
+  }
+}
+
+
+

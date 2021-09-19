@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/dancepage.css') }}">
+  <title>hack the north</title>
+</head>
+
+<body>
+<div class="background">
+  <div class="feat bg-gray pt-5 pb-5">
+    <div class="container">
+        <div class="section-head col-sm-12">
+          <h4><span>Choose Your</span> Dance</h4>
+          <p>Select the dance you would like to begin learning and the guided lines will show you the way!</p>
+        </div>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="card">
+        <div class="card-header">
+          <img src="{{ url_for('static',filename='images/charlie_dancing.gif') }}" alt="hackthenorth">
+        </div>
+        <div class="card-body">
+          <h2>Renegade</h2>
+          <a href="{{ url_for('dance', song=dances[0]) }}" class="btn">Begin </a>
+        </div>
+      </div>
+ 
+      <div class="card">
+        <div class="card-header">
+          <img src="{{ url_for('static',filename='images/outwest.gif') }}" alt="hackthenorth">
+        </div>
+        <div class="card-body">
+          <h2>Outwest</h2>
+          <a href="{{ url_for('dance', song=dances[1]) }}" class="btn">Begin </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <img src="{{ url_for('static',filename='images/dance-carlton.gif') }}" alt="hackthenorth">
+        </div>
+        <div class="card-body">
+          <h2>Carlton</h2>
+          <a href="{{ url_for('dance', song=dances[2]) }}" class="btn">Begin </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="card">
+        <div class="card-header">
+          <img src="{{ url_for('static',filename='images/video0.gif') }}" alt="hackthenorth">
+        </div>
+        <div class="card-body">
+          <h2>Savage Love</h2>
+          <a href="{{ url_for('dance', song=dances[3]) }}" class="btn">Begin </a>
+        </div>
+      </div>
+ 
+      <div class="card">
+        <div class="card-header">
+          <img src="{{ url_for('static',filename='images/floss.gif') }}" alt="hackthenorth">
+        </div>
+        <div class="card-body">
+          <h2>Floss</h2>
+          <a href="{{ url_for('dance', song=dances[4]) }}" class="btn">Begin </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <img src="{{ url_for('static',filename='images/saySo.gif') }}" alt="hackthenorth">
+        </div>
+        <div class="card-body">
+          <h2>Say So</h2>
+          <a href="{{ url_for('dance', song=dances[5]) }}" class="btn">Begin </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</body>
+
+</html>

@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>HackTheNorth</title>   
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/dance.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <p> You picked: {{song}} </p>
+  <div class="background">
+    <div class="feat bg-gray pt-5 pb-5">
+      <div class="container">
+          <div class="section-head col-sm-12">
+            <h2> <span>Now Playing:</span> {{song}} </h2>
+          </div>
+  
   <img src="{{ url_for('video_feed', song=song) }}" width="100%">
   <img
 </body>

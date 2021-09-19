@@ -3,6 +3,11 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+.container {
+  align-items: center;
+  display: flex;
+}
+
 .signup {
   margin: 0 auto;
   text-align: center;
@@ -15,8 +20,7 @@ img {
 
 .main {
   background-color: #FFFFFF;
-  width: 400px;
-  height: 400px;
+  width: 50%;
   margin: 7em auto;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
@@ -84,7 +88,7 @@ font-family: 'Ubuntu', sans-serif;
 cursor: pointer;
   border-radius: 5em;
   color: #fff;
-  background: linear-gradient(to right, #6d001b, #EE1D52);
+  background: linear-gradient(to right, #fc8080, #EE1D52);
   border: 0;
   padding-left: 40px;
   padding-right: 40px;
