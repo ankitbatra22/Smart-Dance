@@ -1,24 +1,45 @@
-{% extends "layout.html" %}
-{% block body %}
-<div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HackTheNorth</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  
+  <div class="full-container">
+  <div class="container">
+    <div class="img">
+      <img src="{{ url_for('static',filename='images/funky-town-annotated.gif') }}" alt="hackthenorth">
+    </div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <form method="POST" action="{{ url_for('login') }}">
-                <div class="form-group">
-                    <label for="exampleInputEmail">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword">Password</label>
-                    <input type="password" class="form-control" name="pass" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Log In</button>
-            </form>
-            <br>
-            <div>
-                Dont have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
-            </div>
+          <div class="login">    
+            <form method="POST" action="{{ url_for('login') }}">    
+                <label><b>User Name     
+                </b>    
+                  </label>    
+                    <input id="Uname"type="text" class="form-control" name="username" placeholder="Username">   
+                  <br><br>    
+                <label><b>Password     
+                </b>    
+                  </label>    
+                    <input id="Pass" type="password" class="form-control" name="pass" placeholder="Password">    
+                  <br><br>    
+                  <button type="submit" id="log" class="btn btn-primary btn-block">Log In</button>      
+                <br><br>    
+                  <input type="checkbox" id="check">    
+                    <span>Remember me</span>    
+                <br><br>    
+                Dont have an account? <a href="{{ url_for('register') }}">Sign up here</a>.   
+            </form>     
         </div>
     </div>
+  </div>
 </div>
-{% endblock %}
+</div>
+
+</body>
+</html>

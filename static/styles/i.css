@@ -1,0 +1,156 @@
+.background {
+  background-color: #fc0d0d;
+}
+
+.vertical-center {
+  background-color: #14142c;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: calc(100vh - 58.4px); 
+}
+.background {
+  height : 100vh;
+	background-color: #2B2D42;
+	font-family: Montserrat;
+}
+
+.horizontal-center {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.login-container {
+	/*background-color: #BDC6D1;*/
+	font-family: Montserrat;
+	height: 620px;
+	width: 1050px;
+	/*box-shadow: 0 2.5px 6px 0 rgba(0, 0, 0, .2);*/
+}
+
+.login-pic-col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 50px;
+}
+
+.login-pic {
+	width: 105%;
+	height: auto;
+	color: white;
+}
+
+.login-form-col {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.login-form-container-all {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.login-form-title-container {
+	margin-top: -45px;
+	margin-bottom: 55px;
+}
+
+.login-form-title {
+  color: #EDF2F4;
+	text-align: center;
+	font-family: montserrat;
+	font-weight: 600;
+	font-size: 60px;
+}
+
+.login-form-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-family: Montserrat;
+}
+
+.login-email-container {
+	margin-bottom: 10px;
+}
+
+.login-email,
+.login-password {
+	border: none;
+	border-bottom: 2px solid #14142c;
+	background: #f7f9fa;
+	height: 40px;
+	width: 260px;
+	font-family: nunito;
+	font-size: 17px;
+	font-weight: 500;
+	border-radius: 5px;
+}
+
+.login-password-container {
+	margin-bottom: 40px;
+	font-family: Montserrat;
+}
+
+
+.login-btn-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.login-btn {
+	font-family: Montserrat;
+	border: none;
+	font-size: 18px;
+	font-weight: 600;
+	background-color: #2fc6b7;
+	color: white;
+	border-radius: 30px;
+	width: 80%;
+	height: 100%;
+	transition: .23s;
+	margin: auto;
+	min-height: 47px;
+	min-width: 150px;
+}
+
+.login-btn:hover {
+	font-family: montserrat;
+	font-weight: 600;
+	/* transform: scale(1.06); */
+	background-color: #FE6D73;
+
+	transition: 0.23s;
+}
+
+.login-btn:focus,
+.login-btn:active {
+	outline: none;
+	box-shadow: none;
+}
+
+.signup-link-container {
+	margin-top: 14px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.signup-link {
+	font-family: Montserrat;
+	color: white;
+	font-size: 20px;
+	
+}
+
+
+.signup-link:hover {
+	text-decoration: none;
+	color: #FE6D73;
+	transition: 0.23s;
+}

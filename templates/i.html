@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+
+  </style>
+    <meta charset="UTF-8">
+    <title>HackTheNorth</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/i.css') }}">   
+</head>
+
+<body>
+<div class="background">
+  <div class="vertical-center">
+<div class="horizontal-center">
+  <div class="row login-container">
+    <div class="col-7 login-pic-col">
+      <img src="{{ url_for('static',filename='images/funky-town-annotated.gif') }}" alt="hackthenorth">
+    </div>
+    <div class="col-5 login-form-col">
+      <div class="login-form-container-all">
+        <div class="login-form-title-container">
+          <h1 class="login-form-title"> Login </h1>
+        </div>
+        <div class="login-form-container">
+          <form method="POST" action="{{ url_for('login') }}"> 
+            <div class="login-email-container">
+              <label><b>User Name     
+              </b>    
+                </label>    
+                  <input id="Uname"type="text" class="form-control" name="username" placeholder="Username">   
+                <br><br>
+            </div>
+            <div class="login-password-container">
+                </b>    
+              </label>    
+                <input id="Pass" type="password" class="form-control" name="pass" placeholder="Password">    
+              <br><br>
+            </div>
+            <div class="login-btn-container">
+              <button type="submit" id="log" class="btn btn-primary btn-block">Log In</button>
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="signup-link-container">
+          Dont have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
