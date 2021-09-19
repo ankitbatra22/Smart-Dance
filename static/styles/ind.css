@@ -1,6 +1,16 @@
 body {
-  background-color: #F3EBF6;
+  background-color: black;
   font-family: 'Ubuntu', sans-serif;
+}
+
+.signup {
+  margin: 0 auto;
+  text-align: center;
+}
+
+img {
+  margin: 20px;
+  border-radius: 20px;
 }
 
 .main {
@@ -14,7 +24,7 @@ body {
 
 .sign {
   padding-top: 40px;
-  color: #8C55AA;
+  color: #EE1D52;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   font-size: 23px;
@@ -74,7 +84,7 @@ font-family: 'Ubuntu', sans-serif;
 cursor: pointer;
   border-radius: 5em;
   color: #fff;
-  background: linear-gradient(to right, #9C27B0, #E040FB);
+  background: linear-gradient(to right, #6d001b, #EE1D52);
   border: 0;
   padding-left: 40px;
   padding-right: 40px;
@@ -88,13 +98,13 @@ cursor: pointer;
 
 .forgot {
   text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-  color: #E1BEE7;
+  color: #EE1D52;
   padding-top: 15px;
 }
 
 a {
   text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-  color: #E1BEE7;
+  color: #EE1D52;
   text-decoration: none
 }
 

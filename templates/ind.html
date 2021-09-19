@@ -14,20 +14,16 @@
   <div class="main">
     <p class="sign" align="center">Sign in</p>
     <form class="form1" method="POST" action="{{ url_for('login') }}">
-     <!-- <input class="un " type="text" align="center" placeholder="Username"> -->
-      <label><b>User Name     
-      </b>    
-        </label>    
+     <!-- <input class="un " type="text" align="center" placeholder="Username"> --> 
           <input class = "un " type="text" align="center" name="username" placeholder="Username">   
-        <br><br>
       <!-- <input class="pass" type="password" align="center" placeholder="Password"> -->
-      <label><b>Password     
-      </b>    
-        </label>    
-          <input class="pass" type="password" align="center"placeholder="Password">    
-        <br><br>
-        <button type="submit" id="log" class="btn btn-primary btn-block">Log In</button>
-      <p class="forgot" align="center"><a href="#">Forgot Password?</p>
+          <input name = "pass" class="pass" id="Pass" type="password" align="center" placeholder="Password">    
+      <button type="submit" align="center" class="submit">Log In</button>
+      <br><br>
+      <div class="signup">
+        Dont have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
+      </div>
+      
             
                 
     </div>

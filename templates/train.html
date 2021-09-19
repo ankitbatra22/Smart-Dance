@@ -4,10 +4,58 @@
     <meta charset="UTF-8">
     <title>HackTheNorth</title>   
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/train.css') }}">
 </head>
 <body>
+  <div class="feat bg-gray pt-5 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="section-head col-sm-12">
+          <h4><span>Choose Your</span> Dance</h4>
+          <p>Select the dance you would like to begin learning and the guided lines will show you the way!</p>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_two"><img src="{{ url_for('static',filename='images/charlie_dancing.gif') }}" alt="hackthenorth"></span>
+            <h6>Renegade</h6>
+            <p>We are always creative and and always lisen our costomers and we mix these two things and make beast design.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_one"><i class="fa fa-globe"></i></span>
+            <h6>Modern Design</h6>
+            <p>We use latest technology for the latest world because we know the demand of peoples.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_three"><i class="fa fa-hourglass-half"></i></span>
+            <h6>24 x 7 User Support</h6>
+            <p>If our customer has any problem and any query we are always happy to help then.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_four"><i class="fa fa-database"></i></span>
+            <h6>Business Growth</h6>
+            <p>Everyone wants to live on top of the mountain, but all the happiness and growth occurs while you're climbing it</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_five"><i class="fa fa-upload"></i></span>
+            <h6>Market Strategy</h6>
+            <p>Holding back technology to preserve broken business models is like allowing blacksmiths to veto the internal combustion engine in order to protect their horseshoes.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="item"> <span class="icon feature_box_col_six"><i class="fa fa-camera"></i></span>
+            <h6>Affordable cost</h6>
+            <p>Love is a special word, and I use it only when I mean it. You say the word too much and it becomes cheap.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   {%for i in range(numDir)%} 
   <p><a href="{{ url_for('dance', song=numFiles[i]) }}">{{numFiles[i]}}</a></p>
 {%endfor%} 
 </body>
 </html>
+
