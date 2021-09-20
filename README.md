@@ -1,5 +1,8 @@
 # Smart-Dance (HTN 2021 Finalists)
 
+### Link: 
+https://devpost.com/software/smart-dance?ref_content=user-portfolio&ref_feature=in_progress
+
 ## Inspiration
 
 With the rise of Tiktok and other social media platforms, pop dance culture has grown tremendously. As programmers, we wanted to find a way to give people a method of engaging with this new culture in a new and fun way.
