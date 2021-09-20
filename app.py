@@ -22,12 +22,6 @@ app.config['MONGO_URI'] = f'mongodb+srv://{username}:{password}@cluster0.vdghb.m
 
 mongo = PyMongo(app)
 
-# DB Connection
-#lient = pymongo.MongoClient(f'mongodb+srv://{username}:{password}@cluster0-xth9g.mongodb.net/Richard?retryWrites=true&w=majority')
-
-#db = client.get_database('total_records')
-#records = db.register
-
 # Mediapipe utils
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
